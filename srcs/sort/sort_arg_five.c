@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 20:54:35 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/09 21:42:45 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,18 @@ void		handle_arg_five(t_stack *a, t_stack *b)
 	int	mid;
 
 	pb = 0;
+	//bubble sort and return mid value
 	mid = get_mid_value_five(a->top);
+	// sort out smallest values
 	while (1)
 	{
+		//pb
 		if (a->top->value < mid)
 		{
 			push_stack(a, b, B);
 			pb++;
 		}
+		//ra
 		else
 			rotate_stack(a, A);
 		if (pb == 2)
