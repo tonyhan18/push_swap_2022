@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 20:54:13 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:24:40 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	exceptional_cases(int r, t_stack *a, t_stack *b)
 
 static void	push_rotate_b(t_stack *a, t_stack *b, t_value *var)
 {
+	// 작은 값을 b 밑으로 내리기
 	if (b->top->value <= var->piv_small)
 	{
 		rotate_stack(b, B);
@@ -37,8 +38,11 @@ static void	push_rotate_b(t_stack *a, t_stack *b, t_value *var)
 	}
 	else
 	{
+		// b의 값을 a로 올리기
 		push_stack(b, a, A);
 		var->pa++;
+		// a에 올린 값 중에서 상대적으로 덜 작은 녀석들은 내리기
+		//나중에 올릴거임
 		if (a->top->value <= var->piv_big)
 		{
 			rotate_stack(a, A);
@@ -84,9 +88,12 @@ void		b_to_a(int r, t_stack *a, t_stack *b, int *cnt)
 	init_value(&var);
 	select_pivot(r, b, &var);
 	r_temp = r;
+	// 큰 값부터 a에 올려놓기
 	while (r_temp--)
 		push_rotate_b(a, b, &var);
+	// a에 올라간 작은 값들이 이상한 것일 수 있기 때문에 b로 돌려주기
 	a_to_b(var.pa - var.ra, a, b, cnt);
+	// 아래로 내려갔던 값들을 원래 위치로 돌리기
 	if (var.ra > var.rb)
 		back_to_orig_ra(a, b, &var);
 	else
