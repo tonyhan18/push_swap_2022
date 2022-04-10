@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 20:55:20 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:47:02 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	push_pop(t_stack *from, t_stack *to)
 	from->size--;
 }
 
-void		push_stack(t_stack *from, t_stack *to, int flag)
+void	push_stack(t_stack *from, t_stack *to, int flag)
 {
 	if (from->size == 0)
 		return ;

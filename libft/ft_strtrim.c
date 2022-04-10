@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/10 16:26:39 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:04:54 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static size_t	cnt_trim(char const *s, char const *set)
 	return (s_len - i);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	cnt;
 	size_t	len;

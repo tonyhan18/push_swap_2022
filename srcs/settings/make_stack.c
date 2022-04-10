@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   make_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 21:22:56 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:46:16 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack			*init_stack(void)
+t_stack	*make_stack_new(void)
 {
-	t_stack	*stack;
+	t_stack	*new_stack;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
+	new_stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!new_stack)
 		return (NULL);
-	stack->size = 0;
-	stack->top = NULL;
-	stack->bottom = NULL;
-	return (stack);
+	new_stack->size = 0;
+	new_stack->top = NULL;
+	new_stack->bottom = NULL;
+	return (new_stack);
 }
 
 static t_node	*init_node(void)
@@ -38,26 +38,26 @@ static t_node	*init_node(void)
 	return (node);
 }
 
-static void		connect_list(t_node **temp, t_node **node, t_stack **stack)
+static void	connect_list(t_node **new, t_node **node, t_stack **stack)
 {
 	if (!*node)
 	{
-		*node = *temp;
+		*node = *new;
 		(*stack)->top = *node;
 	}
 	else
 	{
-		(*node)->next = *temp;
-		(*temp)->prev = *node;
+		(*node)->next = *new;
+		(*new)->prev = *node;
 		*node = (*node)->next;
 	}
 }
 
-static int		set_node(char *argv, t_node **node, t_stack **stack)
+static int	new_node(char *argv, t_node **node, t_stack **stack)
 {
 	int		i;
 	char	**arg;
-	t_node	*temp;
+	t_node	*new;
 
 	arg = ft_split(argv, ' ');
 	if (!arg || !*arg)
@@ -65,11 +65,11 @@ static int		set_node(char *argv, t_node **node, t_stack **stack)
 	i = -1;
 	while (arg[++i])
 	{
-		temp = init_node();
-		if (!temp)
+		new = init_node();
+		if (!new)
 			print_error();
-		temp->value = ft_atoi(arg[i]);
-		connect_list(&temp, node, stack);
+		new->value = ft_atoi(arg[i]);
+		connect_list(&new, node, stack);
 		(*stack)->size++;
 		free(arg[i]);
 	}
@@ -77,7 +77,7 @@ static int		set_node(char *argv, t_node **node, t_stack **stack)
 	return (1);
 }
 
-t_node			*make_stack(int argc, char **argv, t_stack **stack)
+t_node	*make_stack_param(t_stack **stack, int argc, char **argv)
 {
 	int		i;
 	int		ret;
@@ -87,7 +87,7 @@ t_node			*make_stack(int argc, char **argv, t_stack **stack)
 	node = NULL;
 	while (++i < argc)
 	{
-		ret = set_node(argv[i], &node, stack);
+		ret = new_node(argv[i], &node, stack);
 		if (!ret)
 			print_error();
 	}

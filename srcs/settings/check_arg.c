@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 20:55:08 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:45:54 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	is_numeric(char *arg)
 	return (1);
 }
 
-int			check_arg(char *arg)
+int	check_arg(char *arg)
 {
 	int	len;
 
@@ -59,7 +59,7 @@ int			check_arg(char *arg)
 		return (1);
 }
 
-void		check_duplicate(t_node *a)
+void	check_duplicate(t_node *a)
 {
 	int		cur_value;
 	t_node	*temp;

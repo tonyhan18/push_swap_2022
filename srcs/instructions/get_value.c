@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_max_min_value.c                                :+:      :+:    :+:   */
+/*   get_value.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 20:54:06 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:46:55 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	sort_values(int value[])
+static int	sort_value(int value[])
 {
 	int	i;
 	int	j;
@@ -35,7 +35,7 @@ static int	sort_values(int value[])
 	return (value[2]);
 }
 
-int			get_mid_value_five(t_node *node)
+int	get_mid_value_five(t_node *node)
 {
 	int	i;
 	int	value[5];
@@ -51,10 +51,10 @@ int			get_mid_value_five(t_node *node)
 	}
 	while (node->prev)
 		node = node->prev;
-	return (sort_values(value));
+	return (sort_value(value));
 }
 
-int			get_min_value(t_node *node, int size)
+int	get_min_value(t_node *node, int size)
 {
 	int	min;
 
@@ -73,7 +73,7 @@ int			get_min_value(t_node *node, int size)
 	return (min);
 }
 
-int			get_max_value(t_node *node, int size)
+int	get_max_value(t_node *node, int size)
 {
 	int	max;
 

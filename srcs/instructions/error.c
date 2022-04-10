@@ -1,40 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 20:54:09 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:46:30 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_stack(t_stack *stack)
+void	print_error(void)
 {
-	t_node	*node;
-	t_node	*temp;
-
-	node = stack->top;
-	while (node)
-	{
-		if (node->next)
-			temp = node->next;
-		else
-			temp = NULL;
-		free(node);
-		if (temp)
-			node = temp;
-		else
-			break ;
-	}
-	free(stack);
-}
-
-void		free_all(t_stack *a, t_stack *b)
-{
-	free_stack(a);
-	free_stack(b);
+	ft_putendl_fd("Error", 2);
+	exit(0);
 }

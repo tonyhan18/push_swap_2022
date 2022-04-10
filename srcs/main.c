@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 20:53:48 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 17:43:40 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		a = init_stack();
-		a->top = make_stack(argc, argv, &a);
+		a = make_stack_new();
+		b = make_stack_new();
+		a->top = make_stack_param(&a, argc, argv);
 		check_duplicate(a->top);
-		b = init_stack();
 		if (is_sorted(a))
 		{
 			free_all(a, b);

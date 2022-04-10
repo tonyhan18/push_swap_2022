@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/10 16:25:10 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:47:35 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static size_t	n_len(int n)
 	return (len);
 }
 
-static char		*ft_strrev(char *str)
+static char	*ft_strrev(char *str)
 {
 	size_t	i;
 	size_t	len;
@@ -43,7 +43,7 @@ static char		*ft_strrev(char *str)
 	return (str);
 }
 
-static char		*get_arr(char *res, int n, size_t len, size_t sign)
+static char	*get_arr(char *res, int n, size_t len, size_t sign)
 {
 	size_t	i;
 
@@ -65,7 +65,7 @@ static char		*get_arr(char *res, int n, size_t len, size_t sign)
 	return (res);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	size_t	len;
 	size_t	sign;

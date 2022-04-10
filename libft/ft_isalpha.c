@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/10 16:24:54 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:49:33 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_islower(int c)
 	return (0);
 }
 
-int			ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	return (ft_isupper(c) || ft_islower(c));
 }

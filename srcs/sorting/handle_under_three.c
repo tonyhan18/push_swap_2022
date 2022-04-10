@@ -1,41 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atod.c                                          :+:      :+:    :+:   */
+/*   handle_under_three.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/10 16:24:46 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:27:44 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-double	ft_atod(char *str)
+void	handle_arg_two(t_stack *a, t_stack *b, int flag)
 {
-	double	result;
-	int		sign;
-	int		ten;
-
-	result = 0.0;
-	sign = 1;
-	ten = 10;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '+' || *str == '-')
+	if (flag == A)
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (a->top->value > a->top->next->value)
+			swap_stack(a, A);
 	}
-	while (*str >= '0' && *str <= '9')
-		result = (result * 10) + (*str++ - '0');
-	if (*str++ == '.')
-		while (*str >= '0' && *str <= '9')
-		{
-			result += (double)(*str++ - '0') / ten;
-			ten *= 10;
-		}
-	return ((double)(result * sign));
+	else
+	{
+		if (b->top->value < b->top->next->value)
+			swap_stack(b, B);
+		push_stack(b, a, A);
+		push_stack(b, a, A);
+	}
+}
+
+void	handle_under_three(int r, t_stack *a, t_stack *b, int flag)
+{
+	if (r == 3)
+	{
+		if (flag == A)
+			handler_three_a(r, a);
+		else
+			handler_three_b(r, a, b);
+	}
+	else if (r == 2)
+		handle_arg_two(a, b, flag);
+	else if (r == 1)
+	{
+		if (flag == B)
+			push_stack(b, a, A);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/10 16:26:05 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:07:48 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	cnt_words(char const *s, char c)
 	return (cnt);
 }
 
-static char		*get_arr(char const *s, char c, char *res, size_t idx)
+static char	*get_arr(char const *s, char c, char *res, size_t idx)
 {
 	size_t	i;
 	size_t	len;
@@ -65,7 +65,7 @@ static	void	*free_split(char **res, size_t res_idx)
 	return (NULL);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	res_idx;
@@ -73,8 +73,7 @@ char			**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	if (!(res = (char **)malloc(sizeof(char *) * (cnt_words(s, c) + 1))))
-		return (NULL);
+	res = (char **)malloc(sizeof(char *) * (cnt_words(s, c) + 1));
 	i = 0;
 	res_idx = 0;
 	while (s[i])
@@ -83,7 +82,8 @@ char			**ft_split(char const *s, char c)
 			i++;
 		if (s[i] == '\0')
 			break ;
-		if (!(res[res_idx] = get_arr(s, c, res[res_idx], i)))
+		res[res_idx] = get_arr(s, c, res[res_idx], i);
+		if (!(res))
 			return (free_split(res, res_idx));
 		res_idx++;
 		while (s[i] != c && s[i] != '\0')

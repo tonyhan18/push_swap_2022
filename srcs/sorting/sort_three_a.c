@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_arg_three_a.c                                 :+:      :+:    :+:   */
+/*   sort_three_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 20:54:28 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:44:48 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	arg_three_top_min_a(t_stack *a, int max)
+static void	top_min_a(t_stack *a, int max)
 {
 	if (a->size == 3)
 	{
@@ -33,7 +33,7 @@ static void	arg_three_top_min_a(t_stack *a, int max)
 	}
 }
 
-static void	arg_three_middle_min_a(t_stack *a, int max)
+static void	middle_min_a(t_stack *a, int max)
 {
 	if (a->size == 3)
 	{
@@ -54,7 +54,7 @@ static void	arg_three_middle_min_a(t_stack *a, int max)
 	}
 }
 
-static void	arg_three_bottom_min_a(t_stack *a, int max)
+static void	bottom_min_a(t_stack *a, int max)
 {
 	if (a->size == 3)
 	{
@@ -73,7 +73,7 @@ static void	arg_three_bottom_min_a(t_stack *a, int max)
 	}
 }
 
-void		handle_arg_three_a(int r, t_stack *a)
+void	handler_three_a(int r, t_stack *a)
 {
 	int	min;
 	int	max;
@@ -81,9 +81,9 @@ void		handle_arg_three_a(int r, t_stack *a)
 	min = get_min_value(a->top, r);
 	max = get_max_value(a->top, r);
 	if (a->top->value == min)
-		arg_three_top_min_a(a, max);
+		top_min_a(a, max);
 	else if (a->top->next->value == min)
-		arg_three_middle_min_a(a, max);
+		middle_min_a(a, max);
 	else if (a->top->next->next->value == min)
-		arg_three_bottom_min_a(a, max);
+		bottom_min_a(a, max);
 }

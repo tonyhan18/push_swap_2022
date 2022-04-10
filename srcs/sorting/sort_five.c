@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_arg_five.c                                    :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:53:45 by chahan            #+#    #+#             */
-/*   Updated: 2022/04/09 21:42:45 by chahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 18:45:35 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,39 +68,35 @@ static void	sort_five_b(int size, t_stack *a, t_stack *b)
 		reverse_rotate_stack(b, B);
 }
 
-void		hanlde_sort_five(int size, t_stack *a, t_stack *b, int flag)
+void	handler_five_sort(int size, t_stack *a, t_stack *b, int flag)
 {
 	if (flag == A)
 		sort_five_a(size, a, b);
 	else
 		sort_five_b(size, a, b);
-	handle_arg_three_a(3, a);
+	handler_three_a(3, a);
 	handle_arg_two(a, b, B);
 }
 
-void		handle_arg_five(t_stack *a, t_stack *b)
+void	handler_five(t_stack *a, t_stack *b)
 {
 	int	pb;
 	int	mid;
 
 	pb = 0;
-	//bubble sort and return mid value
 	mid = get_mid_value_five(a->top);
-	// sort out smallest values
 	while (1)
 	{
-		//pb
 		if (a->top->value < mid)
 		{
 			push_stack(a, b, B);
 			pb++;
 		}
-		//ra
 		else
 			rotate_stack(a, A);
 		if (pb == 2)
 			break ;
 	}
-	handle_arg_three_a(3, a);
+	handler_three_a(3, a);
 	handle_arg_two(a, b, B);
 }
